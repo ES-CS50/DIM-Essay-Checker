@@ -510,7 +510,8 @@ async def unknown(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # ============================================================
 # 7. BOTU İŞƏ SAL
 # ============================================================
-def main():
+import asyncio
+async def main():
     app = Application.builder().token(TELEGRAM_TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
@@ -522,7 +523,7 @@ def main():
         MessageHandler((filters.TEXT & ~filters.COMMAND) | filters.PHOTO, handle_message)
     )
     app.add_handler(MessageHandler(~filters.TEXT & ~filters.PHOTO, unknown))
-    app.run_polling()
+    await app.run_polling()
 
     # Render.com bu env-i avtomatik yaradır -> webhook rejimi.
     # Kompüterdə lokal işlədəndə bu env yoxdur -> adi polling rejimi.
@@ -531,6 +532,6 @@ render_url = os.environ.get("RENDER_EXTERNAL_URL")
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main))
     
 
