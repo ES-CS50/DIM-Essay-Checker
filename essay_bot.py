@@ -527,7 +527,7 @@ def main():
     # Kompüterdə lokal işlədəndə bu env yoxdur -> adi polling rejimi.
 render_url = os.environ.get("RENDER_EXTERNAL_URL")
 
-application.run_polling()
+app.run_polling()
 
 if __name__ == "__main__":
     main()
