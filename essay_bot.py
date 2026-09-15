@@ -532,6 +532,6 @@ render_url = os.environ.get("RENDER_EXTERNAL_URL")
 
 
 if __name__ == "__main__":
-    asyncio.run(main))
+    asyncio.run(main())
     
 
