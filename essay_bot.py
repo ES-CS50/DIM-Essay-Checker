@@ -525,10 +525,11 @@ def main():
 
     # Render.com bu env-i avtomatik yaradır -> webhook rejimi.
     # Kompüterdə lokal işlədəndə bu env yoxdur -> adi polling rejimi.
-    render_url = os.environ.get("RENDER_EXTERNAL_URL")
+render_url = os.environ.get("RENDER_EXTERNAL_URL")
 
-    app.run_polling()
+app.run_polling()
 
 if __name__ == "__main__":
     main()
+    
 
