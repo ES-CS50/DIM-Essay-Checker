@@ -522,12 +522,13 @@ def main():
         MessageHandler((filters.TEXT & ~filters.COMMAND) | filters.PHOTO, handle_message)
     )
     app.add_handler(MessageHandler(~filters.TEXT & ~filters.PHOTO, unknown))
+    app.run_polling()
 
     # Render.com bu env-i avtomatik yaradır -> webhook rejimi.
     # Kompüterdə lokal işlədəndə bu env yoxdur -> adi polling rejimi.
 render_url = os.environ.get("RENDER_EXTERNAL_URL")
 
-app.run_polling()
+
 
 if __name__ == "__main__":
     main()
